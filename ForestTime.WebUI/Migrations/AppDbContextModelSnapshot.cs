@@ -145,7 +145,6 @@ namespace ForestTime.WebUI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -442,9 +441,7 @@ namespace ForestTime.WebUI.Migrations
 
                     b.HasOne("ForestTime.WebUI.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Article");
 
